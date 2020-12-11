@@ -26,4 +26,9 @@ class PizzaController extends Controller
         return view('welcome')->with('pizza',$pizza)->with('role',$role)->with('auth',$auth);
        
     }
+    public function show($id){
+        $pizza = Pizza::find($id);
+        // return $pizza;
+        return view('details')->with('pizza',$pizza);
+    }
 }

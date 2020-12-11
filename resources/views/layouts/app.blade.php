@@ -33,7 +33,7 @@
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="n  av-item">
+                    <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
@@ -46,6 +46,9 @@
         </nav>
                     
         @endguest
+        @auth
+            
+       
         @if(Auth::user()->role==1)
         <nav class="navbar  navbar-custom navbar-expand-lg navbar-light">
             <div class="container">
@@ -56,7 +59,7 @@
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="n  av-item">
+                    <li class="nav-item">
                     <a class="nav-link" href="/login">View Transaction History</a>
                     </li>
                     <li class="nav-item">
@@ -68,7 +71,13 @@
                                 {{ Auth::user()->name }}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
     
                             </div>
                           </div>
@@ -88,7 +97,7 @@
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="n  av-item">
+                    <li class="nav-item">
                     <a class="nav-link" href="/login">View All User Transaction</a>
                     </li>
                     <li class="nav-item">
@@ -101,8 +110,14 @@
                             {{ Auth::user()->name }}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Logout</a>
-
+                          {{-- <a class="dropdown-item" href="#">Logout</a> --}}
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                         </div>
                       </div>
                     </li>
@@ -112,6 +127,7 @@
             </div>
         </nav>
         @endif
+        @endauth
         
 
     
