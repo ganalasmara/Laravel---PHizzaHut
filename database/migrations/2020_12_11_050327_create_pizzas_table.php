@@ -19,6 +19,7 @@ class CreatePizzasTable extends Migration
             $table->longText('description');
             $table->integer('price');
             $table->string('photo');
+            $table->timestamps();
         });
     }
 

@@ -8,6 +8,13 @@
                 <p class="fresh"">Order it now!</p>
             </div>
         </div>
+        @auth
+        @if(Auth::user()->role==2)
+        
+        <a href="/pizza/add" class="btn btn-primary" >Add Pizza</a>
+        
+        @endif
+        @endauth
         <div class="row">
            <!-- Search form -->
             <input class="form-control" type="text" placeholder="Search" aria-label="Search">
@@ -17,7 +24,7 @@
             @foreach ($pizza as $p)
             <div class="col-md-4 d-flex justify-content-center">
             <div class="card mb-2 mt-2" style="width: 18rem;">
-                <a href="/pizza/{{ $p->id }}"><img class="card-img-top" src="{{ $p->photo }}" alt="Card image cap"></a>
+                <a href="/pizza/{{ $p->id }}"><img class="card-img-top" src="{{ asset($p->photo) }}" alt="Card image cap"></a>
                 <div class="card-body">
                   <h5 class="card-title">{{ $p->name }}</h5>
                   <p class="card-text">Rp {{ $p->price }}</p>
@@ -28,8 +35,8 @@
                   @if (Auth::user()->role==1)
                   <a href="/pizza/{{ $p->id }}" class="btn btn-block btn-primary">View Me!</a>
                   @elseif(Auth::user()->role==2)
-                  <a href="#" class="btn btn-block btn-primary">Update Pizza</a>
-                  <a href="#" class="btn btn-block btn-danger">Delete Pizza</a>
+                  <a href="/pizza/edit/{{ $p->id }}" class="btn btn-block btn-primary">Edit Pizza</a>
+                  <a href="/pizza/delete/{{ $p->id }}" class="btn btn-block btn-danger">Delete Pizza</a>
                   @endif
                   @endauth
                   

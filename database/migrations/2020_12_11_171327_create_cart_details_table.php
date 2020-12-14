@@ -16,7 +16,8 @@ class CreateCartDetailsTable extends Migration
         Schema::create('cart_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('cart_id')->references('id')->on('cart');
-            $table->foreignId('pizza_id')->references('id')->on('pizza');
+            $table->foreignId('pizza_id')->references('id')->on('pizzas');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
