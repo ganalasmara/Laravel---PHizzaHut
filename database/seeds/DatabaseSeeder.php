@@ -21,6 +21,14 @@ class DatabaseSeeder extends Seeder
                 'phone'=>'081223125412',
                 'gender'=>'male',
                 'role'=>'2'
+            ],
+            [    'name'=>'member',
+                'email'=>'member@gmail.com',
+                'password'=> Hash::make('memberr'),
+                'address'=>'rumah member',
+                'phone'=>'08123123722',
+                'gender'=>'male',
+                'role'=>'1'
            ]
            ]);
 

@@ -63,7 +63,7 @@
                     <a class="nav-link" href="/login">View Transaction History</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/register">View Cart</a>
+                    <a class="nav-link" href="/cart">View Cart</a>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown">

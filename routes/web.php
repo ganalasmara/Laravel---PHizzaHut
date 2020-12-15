@@ -27,8 +27,11 @@ Route::post('/pizza/insert', 'PizzaController@insert')->name('insert');
 Route::get('/pizza/edit/{id}','PizzaController@edit');
 Route::post('/pizza/edit/{id}','PizzaController@update')->name('update');
 
+Route::get('/cart','CartController@index');
+Route::post('/cart/update/{cart_id}/{pizza_id}','CartController@update')->name('cart.update');
+Route::get('/cart/delete/{cart_id}/{pizza_id}','CartController@delete')->name('cart.delete');
+
 Route::get('/pizza/{id}', 'PizzaController@show');
 Route::post('/pizza/{id}', 'CartController@add')->name('add');
-
 // Route::post('/pizza/{id}','CartController@save');
 Auth::routes();
