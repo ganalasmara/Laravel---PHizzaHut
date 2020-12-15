@@ -17,7 +17,7 @@ class CreateTransactionDetailsTable extends Migration
             $table->id();
             $table->foreignId('transaction_ID')->references('id')->on('transactions');
             $table->foreignId('pizza_id')->references('id')->on('pizzas');
-            $table->integer('qty');
+            $table->integer('quantity');
             // $table->string('pizza_id');
             $table->timestamps();
         });

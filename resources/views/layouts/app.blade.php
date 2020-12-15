@@ -60,7 +60,7 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="/login">View Transaction History</a>
+                    <a class="nav-link" href="/history">View Transaction History</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="/cart">View Cart</a>
@@ -98,10 +98,10 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="/login">View All User Transaction</a>
+                    <a class="nav-link" href="{{ route('admin.alltrans') }}">View All User Transaction</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="/register">View All User</a>
+                    <a class="nav-link" href="{{ route('admin.alluser') }}">View All User</a>
                     </li>
                     <li class="nav-item">
                     {{-- <a class="nav-link" href="/register">{{ Auth::user()->name }}</a> --}}

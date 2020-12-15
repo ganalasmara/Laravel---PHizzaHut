@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
-    // $auth = Auth::check();
-        // $role = 0;
-        // if($auth){
-        //     $role = Auth::user()->role;
-        // }
+    public function all(){
+        $user = User::all();
+
+        return view('alluser')->with('user',$user);
+        // return $user;
+    }
 }

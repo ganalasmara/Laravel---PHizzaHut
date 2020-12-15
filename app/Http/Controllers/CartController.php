@@ -7,6 +7,8 @@ use App\Pizza;
 use App\Cart;
 use App\CartDetail;
 use Illuminate\Support\Facades\Auth;
+use App\Transaction;
+use App\TransactionDetail;
 
 class CartController extends Controller
 {
@@ -62,6 +64,31 @@ class CartController extends Controller
         $cart= CartDetail::where('cart_id',$cart_id)->where('pizza_id',$pizza_id)->first()->delete();
 
         return back()->with('successMsg','Pizza has been deleted from Cart!');
+    }
+
+    public function checkout($cart_id){
+        $trans = new Transaction();
+        $trans->user_id = Auth::user()->id;
+        $trans->total=0;
+        $trans->save();
+        $cart = CartDetail::where('cart_id',$cart_id)->get();
+        $total=0;
+
+        for($a=0;$a<count($cart);$a++){
+            $transDetails = new TransactionDetail();
+
+            $transDetails->transaction_id = $trans->id;
+            $transDetails->pizza_id = $cart[$a]->pizza_id;
+            $transDetails->quantity = $cart[$a]->quantity;
+            $total= $total+($transDetails->quantity * $transDetails->pizza->price);
+            $transDetails->save();
+            $cart[$a]->delete();
+        }
+        $trans->total=$total;
+        $trans->save();
+
+        return back()->with('successMsg','Checkout Success!');
+
     }
 
     

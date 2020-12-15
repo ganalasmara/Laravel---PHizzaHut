@@ -13,8 +13,13 @@
     @if(Session::has('successMsg'))
     <div class="alert alert-success text-center"> {{ Session::get('successMsg') }}</div>
     @endif
-
+    
     <div class="container">
+      @if ($cart->cartDetails->isEmpty())
+      <div class="row">
+        <h2 class="text-center">Your cart is empty.</h2>
+      </div>
+      @else
       @foreach ($cart->cartDetails as $c)       
         <div class="row">
             <div class="col-md-4">
@@ -41,5 +46,12 @@
             </div>
         </div>
         @endforeach
+        @endif
+        
+        @if(!$cart->cartDetails->isEmpty())
+        <div class="col-md-12 text-center">
+        <a href="{{ route('checkout', ['cart_id'=>$cart->id]) }}"><button class="btn btn-primary mb-2">Checkout</button></a>
+        </div>
+        @endif
     </div>
 @endsection
