@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 Route::get('/', 'PizzaController@index');
-
+Route::post('/','PizzaController@search')->name('search');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/pizza/add', 'PizzaController@add');

@@ -10,18 +10,26 @@
         </div>
         @auth
         @if(Auth::user()->role==2)
-        
+        <div class="d-flex justify-content-center mb-2">
         <a href="/pizza/add" class="btn btn-primary" >Add Pizza</a>
-        
+        </div>
         @endif
         @endauth
         <div class="row">
            <!-- Search form -->
-           <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-              aria-label="Search">
-          </form>
+           <div class="col-md-12 d-flex justify-content-center">
+           <form method="POST" action="{{ route('search') }}">
+            @csrf
+              
+                  <input type="text" class="form-control mb-1" name="search" id="search"
+                      placeholder="Search Pizza">
+              
+             
+                <button type="submit" class="btn btn-primary btn-block">Search</button>
+             
+            </form>
+          </div>
+            
         </div>
         <div class="row ">
 
