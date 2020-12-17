@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+{{-- //I MADE GANAL ASMARA JAYA - 2201799386 --}}
 @section('content')
     <div class="container">
         <div class="row">

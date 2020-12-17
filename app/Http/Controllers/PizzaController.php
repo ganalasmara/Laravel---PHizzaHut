@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Pizza;
 use Illuminate\Support\Facades\Auth;
 
+//I MADE GANAL ASMARA JAYA - 2201799386
+
 class PizzaController extends Controller
 {
     public function index()

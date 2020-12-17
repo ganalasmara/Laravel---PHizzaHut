@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Transaction;
 use App\TransactionDetail;
 
+//I MADE GANAL ASMARA JAYA - 2201799386
+
 class CartController extends Controller
 {
     public function index(){

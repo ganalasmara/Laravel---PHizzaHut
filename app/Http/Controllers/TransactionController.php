@@ -9,7 +9,7 @@ use App\CartDetail;
 use Illuminate\Support\Facades\Auth;
 use App\Transaction;
 use App\TransactionDetail;
-
+//I MADE GANAL ASMARA JAYA - 2201799386
 
 class TransactionController extends Controller
 {
